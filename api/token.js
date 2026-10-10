@@ -11,7 +11,10 @@ const handler = createTokenHandler();
 
 module.exports = async (req, res) => {
   // CORS: allow only the classroom page + localhost.
-  const allowed = (process.env.ALLOWED_ORIGINS || '')
+  // Defaults cover production; ALLOWED_ORIGINS env var can extend/override.
+  const allowed = (process.env.ALLOWED_ORIGINS ||
+    'https://muse.ai/s/chess-classroom-gxq6v0xq3ldl0,http://localhost:3000,https://chess-classroom-gxq6v0xq3ldl0.cf.metaaiusercontent.com'
+  )
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean);
