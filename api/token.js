@@ -20,10 +20,10 @@ module.exports = async (req, res) => {
     .filter(Boolean);
   const origin = req.headers.origin;
 if (origin === 'null') {
-`res.setHeader('Access-Control-Allow-Origin', 'null');
-`} else if (origin && allowed.includes(origin)) {
-`res.setHeader('Access-Control-Allow-Origin', origin);
-`}
+res.setHeader('Access-Control-Allow-Origin', 'null');
+} else if (origin && allowed.includes(origin)) {
+res.setHeader('Access-Control-Allow-Origin', origin);
+}
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(204).end();
