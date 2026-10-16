@@ -1,1 +1,17 @@
-{"$schema":"https://openapi.vercel.sh/vercel.json","functions":{"api/health.js":{"maxDuration":10},"api/token.js":{"maxDuration":10}}}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/health.js": {
+      "maxDuration": 10
+    },
+    "api/token.js": {
+      "maxDuration": 10
+    },
+    "api/remove.js": {
+      "maxDuration": 10
+    },
+    "api/reinvite.js": {
+      "maxDuration": 10
+    }
+  }
+}

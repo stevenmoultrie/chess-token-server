@@ -16,7 +16,9 @@ app.use(express.json({ limit: '10kb' }));
 
 // Only the classroom page (and localhost for testing) may call /token
 // from a browser. Everything else gets a CORS rejection.
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000')
+// NOTE: browsers send only the bare origin — never a path — so entries
+// here must be bare origins.
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000,http://localhost,https://muse.ai,https://chess-classroom-gxq6v0xq3ldl0.cf.metaaiusercontent.com,capacitor://localhost,ionic://localhost')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);
