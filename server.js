@@ -8,7 +8,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { createTokenHandler } = require('./lib/token');
+const { createTokenHandler, createBoardHandler } = require('./lib/token');
 const { rateLimit } = require('./lib/rate-limit');
 
 const app = express();
@@ -35,6 +35,10 @@ app.get('/health', (req, res) => {
 
 // Best-effort abuse protection: 30 token requests/min per IP.
 app.post('/token', rateLimit({ windowMs: 60_000, max: 30 }), createTokenHandler());
+
+// Shared board (admin calendar, closed days, day messages, reviews).
+app.get('/board', createBoardHandler());
+app.post('/board', rateLimit({ windowMs: 60_000, max: 30 }), createBoardHandler());
 
 const port = Number(process.env.PORT) || 3001;
 app.listen(port, () => {
