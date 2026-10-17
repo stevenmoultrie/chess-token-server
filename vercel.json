@@ -1,17 +1,1 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": {
-    "api/health.js": {
-      "maxDuration": 10
-    },
-    "api/token.js": {
-      "maxDuration": 10
-    },
-    "api/remove.js": {
-      "maxDuration": 10
-    },
-    "api/reinvite.js": {
-      "maxDuration": 10
-    }
-  }
-}
+{"$schema":"https://openapi.vercel.sh/vercel.json","functions":{"api/health.js":{"maxDuration":10},"api/privacy.js":{"maxDuration":10},"api/reinvite.js":{"maxDuration":10},"api/remove.js":{"maxDuration":10},"api/support.js":{"maxDuration":10},"api/token.js":{"maxDuration":10}},"rewrites":[{"destination":"/api/privacy","source":"/privacy.html"},{"destination":"/api/support","source":"/support.html"}]}
